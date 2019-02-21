@@ -24,7 +24,7 @@ handleClick(index) {
 
   render() {
     return (
-       <section className="room-list">
+      <section className="room-list">
           <h3>Rooms</h3>
           {this.state.rooms.map( room =>
                <li key={room.key} >
