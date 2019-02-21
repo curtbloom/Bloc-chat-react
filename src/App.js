@@ -14,7 +14,7 @@ var config = {
   messagingSenderId: "599347266517"
 };
 firebase.initializeApp(config);
-  
+
 class App extends Component {
   render() {
     return (
@@ -31,7 +31,6 @@ class App extends Component {
         {/* Right Column */}
         <div className="col_right">
           <p className="App-intro">
-            To get started, edit <code>src/App.js</code> and save to reload.
           </p>
         </div>
 
