@@ -18,50 +18,36 @@ componentDidMount() {
   });
 }
 
-handleClick(index) {
-    console.log("clicked: ", this.state.rooms[index]);
-  }
+createRoom(newRoomName) {
+   this.roomsRef.push({
+      name: newRoomName
+   });
+   this.setState({ newRoomName: '' });
+}
 
-handleNewRoomChange(e) {
-    console.log("handleNewRoomChange(): ", e.target.value);
-    this.setState({
-      newRoomName: e.target.value,
-    })
-  }
+handleChange(e) {
+   this.setState({ newRoomName: e.target.value });
+}
 
-handleNewRoomAdd() {
-    if (!this.state.newRoomName) return
-
-    this.roomsRef.push(this.state.newRoomName)
-    this.setState({
-      newRoomName: '',
-    })
-    console.log("add, state:", this.state);
-  }
+handleSubmit(e) {
+   e.preventDefault();
+   this.createRoom(this.state.newRoomName);
+}
 
   render() {
     return (
-      <div>
-        <div className="new-room">
-          <input type="text" id="send-input" value={this.state.newRoomName}
-            onChange={(e) => this.handleNewRoomChange(e)} />
-          <button type="button"
-            className="new-room-button"
-            onClick={() => this.handleNewRoomAdd()}>
-            New Room
-          </button>
-        </div>
-
-        <div>
-          {this.state.rooms.map((room, index) => {
-            return (
-              <p key={room.key} onClick={() => this.handleRoomClick(index)}>
-                {room.val}
-              </p>
-            )
-          })}
-        </div>
-      </div>
+      <section className="room-list">
+        <h3>Rooms</h3>
+        {this.state.rooms.map( room =>
+          <li key={room.key} >
+            {room.name}
+          </li>
+        )}
+      <form id="create-room" onSubmit={ (e) => this.handleSubmit(e) }>
+         <input type="text" value={ this.state.newRoomName } onChange={ (e) => this.handleChange(e) }/>
+         <input type="submit" />
+      </form>
+  </section>
     )
   }
 }
