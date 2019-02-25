@@ -22,17 +22,47 @@ handleClick(index) {
     console.log("clicked: ", this.state.rooms[index]);
   }
 
+handleNewRoomChange(e) {
+    console.log("handleNewRoomChange(): ", e.target.value);
+    this.setState({
+      newRoomName: e.target.value,
+    })
+  }
+
+handleNewRoomAdd() {
+    if (!this.state.newRoomName) return
+
+    this.roomsRef.push(this.state.newRoomName)
+    this.setState({
+      newRoomName: '',
+    })
+    console.log("add, state:", this.state);
+  }
+
   render() {
     return (
-      <section className="room-list">
-          <h3>Rooms</h3>
-          {this.state.rooms.map( room =>
-               <li key={room.key} >
-                 {room.name}
-               </li>
-           )}
-       </section>
-    );
+      <div>
+        <div className="new-room">
+          <input type="text" id="send-input" value={this.state.newRoomName}
+            onChange={(e) => this.handleNewRoomChange(e)} />
+          <button type="button"
+            className="new-room-button"
+            onClick={() => this.handleNewRoomAdd()}>
+            New Room
+          </button>
+        </div>
+
+        <div>
+          {this.state.rooms.map((room, index) => {
+            return (
+              <p key={room.key} onClick={() => this.handleRoomClick(index)}>
+                {room.val}
+              </p>
+            )
+          })}
+        </div>
+      </div>
+    )
   }
 }
 
