@@ -43,11 +43,11 @@ handleSubmit(e) {
             {room.name}
           </li>
         )}
-      <form id="create-room" onSubmit={ (e) => this.handleSubmit(e) }>
-         <input type="text" value={ this.state.newRoomName } onChange={ (e) => this.handleChange(e) }/>
-         <input type="submit" />
-      </form>
-  </section>
+        <form id="create-room" onSubmit={ (e) => this.handleSubmit(e) }>
+          <input type="text" value={ this.state.newRoomName } onChange={ (e) => this.handleChange(e) }/>
+          <input type="submit" />
+         </form>
+      </section>
     )
   }
 }
