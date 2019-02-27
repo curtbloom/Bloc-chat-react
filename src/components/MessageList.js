@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import '.././Styles/MessageList.css';
 
 class Messages extends Component {
   constructor (props) {
     super(props)
     this.state = {
       allMessages: [],
-      displayedMessages: [],
+      currentMessages: [],
       newMessageText: ''
     }
     this.messagesRef = this.props.firebase.database().ref('messages')
@@ -38,7 +39,7 @@ class Messages extends Component {
       <main id="messages-component">
         <h2 className="room-name">{ this.props.activeRoom ? this.props.activeRoom.name : '' }</h2>
         <ul id="message-list">
-          {this.state.displayedMessages.map( message =>
+          {this.state.currentMessages.map( message =>
             <li key={message.key}>
               <div className="username">
                  { message.username }
@@ -49,6 +50,10 @@ class Messages extends Component {
             </li>
           )}
         </ul>
+        <form id="create-message" onSubmit={ (e) => { e.preventDefault(); this.createMessage(this.state.newMessageText) } }>
+          <input type="text" value={ this.state.newMessageText } onChange={ this.handleChange.bind(this) }  name="newMessageText" placeholder="Send your message here..." />
+          <input type="submit" value="Send"/>
+        </form>
       </main>
     );
   }
