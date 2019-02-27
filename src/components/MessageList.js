@@ -7,9 +7,9 @@ class Messages extends Component {
     this.state = {
       allMessages: [],
       currentMessages: [],
-      newMessageText: ''
+      newMessageText: '',
     }
-    this.messagesRef = this.props.firebase.database().ref('messages')
+    this.messagesRef = this.props.firebase.database().ref("messages")
   }
 
   componentDidMount() {
@@ -17,13 +17,22 @@ class Messages extends Component {
       const message = snapshot.val();
       message.key = snapshot.key;
       this.setState({ allMessages: this.state.allMessages.concat( message ) }, () => {
-        this.showMessages( this.props.activeRoom )
+        this.showMessages( this.props.activeRoom );
       });
     });
   }
 
   componentWillReceiveProps(nextProps) {
-    this.showMessages( nextProps.activeRoom );
+    this.showMessages(nextProps.activeRoom);
+  }
+
+  createMessage(newMessageText) {
+  this.messagesRef.push({
+      content: newMessageText,
+      sentAt: Date.now(),
+      roomId: this.props.activeRoom.key,
+    });
+  this.setState({ newMessageText: '' });
   }
 
   handleChange(e) {
@@ -31,13 +40,13 @@ class Messages extends Component {
   }
 
   showMessages(activeRoom) {
-    this.setState({ displayedMessages: this.state.allMessages.filter( message => message.roomId === activeRoom.key ) });
+    this.setState({ currentMessages: this.state.allMessages.filter( message => message.roomId === activeRoom.key ) });
   }
 
   render() {
     return (
       <main id="messages-component">
-        <h2 className="room-name">{ this.props.activeRoom ? this.props.activeRoom.name : '' }</h2>
+        <h2 className="room-name">{ this.props.activeRoom ? this.props.activeRoom.name : "" }</h2>
         <ul id="message-list">
           {this.state.currentMessages.map( message =>
             <li key={message.key}>
@@ -51,7 +60,7 @@ class Messages extends Component {
           )}
         </ul>
         <form id="create-message" onSubmit={ (e) => { e.preventDefault(); this.createMessage(this.state.newMessageText) } }>
-          <input type="text" value={ this.state.newMessageText } onChange={ this.handleChange.bind(this) }  name="newMessageText" placeholder="Send your message here..." />
+          <input type="text" value={ this.state.newMessageText } onChange={ this.handleChange.bind(this) }  name="newMessageText" placeholder="Write your message here..." />
           <input type="submit" value="Send"/>
         </form>
       </main>
