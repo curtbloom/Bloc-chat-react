@@ -19,6 +19,10 @@ class RoomList extends Component {
      });
    }
 
+   handleClick(index) {
+    console.log("clicked: ", this.state.rooms[index]);
+  }
+
    createRoom(newRoomName) {
       this.roomsRef.push({
          name: newRoomName
@@ -40,7 +44,7 @@ class RoomList extends Component {
         <section className="room-list">
 	    <h3>Rooms</h3>
             {this.state.rooms.map( room =>
-                <li key={room.key} >
+                <li key={room.key} onClick={() => this.props.setActiveRoom(room)} >
                   {room.name}
                 </li>
             )}
