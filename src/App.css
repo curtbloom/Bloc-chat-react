@@ -1,7 +1,7 @@
 
 
 .sidebar {
-  color: white;
+  color: black;
   background-color: #e6b962;
   border-style: inset;
   border-width: 5px;
@@ -20,5 +20,5 @@
 }
 
 .message-component{
-  
+
 }
