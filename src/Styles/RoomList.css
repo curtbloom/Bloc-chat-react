@@ -1,1 +1,11 @@
+.room-list {
+    grid-area: r;
+}
 
+.room-list {
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: var(--main-color);
+    overflow: scroll;
+    height: 100%;
+}

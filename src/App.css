@@ -1,31 +1,24 @@
+
+
 .sidebar {
-  background: rgba(100, 138, 205, 0.77);
-  border-right: .25rem solid rgb(230, 174, 47);
-  box-shadow: 1px 0px 5px rgba(0,0,0,0.3);
-  height: 100%;
-  overflow: scroll;
-  position: fixed;
-  width: 25%;
-  z-index: 3;
-}
-
-#sidebar button:hover span {
-  color: rgb(0, 120, 60);
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 200px;
-  padding: 20px;
   color: white;
+  background-color: #e6b962;
+  border-style: inset;
+  border-width: 5px;
+  box-shadow: 1px 1px 1px 1px gray;
+  text-align: left;
+  width: 30%;
+  border: 5px solid white;
+  display: inline-block;
+  font-size: 1.5em;
+  margin-bottom: 1.5em;
+  margin-top: .2;
 }
 
-.App-title {
-  font-size: 1.65em;
-  margin-left: 2px;
+.sidebar-bottom {
+
+}
+
+.message-component{
+  
 }

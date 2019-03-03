@@ -31,7 +31,7 @@ class Messages extends Component {
   createMessage(newMessageText) {
   this.messagesRef.push({
       content: newMessageText,
-      sentAt: Date.now(),
+      username: this.props.user ? this.props.user.displayName : 'Curtbloom',
       roomId: this.props.activeRoom.key,
     });
   this.setState({ newMessageText: '' });

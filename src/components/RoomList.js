@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '.././Styles/RoomList.css';
+import '.././App.css';
 
 class RoomList extends Component {
    constructor(props) {
@@ -41,18 +41,23 @@ class RoomList extends Component {
 
    render() {
      return (
+       <div className="sidebar">
         <section className="room-list">
-	    <h3>Rooms</h3>
+	          <h3>Rooms</h3>
             {this.state.rooms.map( room =>
                 <li key={room.key} onClick={() => this.props.setActiveRoom(room)} >
                   {room.name}
                 </li>
             )}
             <form id="create-room" onSubmit={ (e) => this.handleSubmit(e) }>
-               <input type="text" value={ this.state.newRoomName } onChange={ (e) => this.handleChange(e) }/>
+               <input type="text"
+               value={ this.state.newRoomName }
+               placeholder="Create a room"
+               onChange={ (e) => this.handleChange(e) }/>
                <input type="submit" />
             </form>
         </section>
+       </div>
      );
    }
 }
