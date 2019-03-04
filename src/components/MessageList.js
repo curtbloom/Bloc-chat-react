@@ -49,7 +49,7 @@ class Messages extends Component {
    return (
      <div className="messages-component">
        <h2 className="room-name">{ this.props.activeRoom ? this.props.activeRoom.name : '' }</h2>
-       <ul id="message-list">
+       <ul id="message-list" user={this.state.user}>
          {this.state.currentMessages.map( message =>
            <li key={message.key}>
              <div className="username">
