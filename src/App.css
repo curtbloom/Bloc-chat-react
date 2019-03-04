@@ -1,24 +1,73 @@
-
+body{
+	overflow: hidden;
+	font-family: 'Open Sans', sans-serif;
+	background-color: black;
+}
 
 .sidebar {
-  color: black;
-  background-color: #e6b962;
-  border-style: inset;
-  border-width: 5px;
-  box-shadow: 1px 1px 1px 1px gray;
-  text-align: left;
-  width: 30%;
-  border: 5px solid white;
-  display: inline-block;
+width: 25%;
+float: left;
+top: 0px;
+height: 1018px;
+background-color: orange;
+position: relative;
+top: 0px;
+}
+
+.messages-component{
+  width: 75%;
+  border: 10px;
+  background-color: #d9dfdf;
+  float: right;
+  font-size: .8em;
+  top: -37px;
+  min-height: 980px;
+  position: relative;
+}
+
+#sidebar-bottom{
+  float: left;
+  position: relative;
+  right: 260px;
+  top: 180px;
+}
+
+.App-title {
+  color: white;
+  background-color: black;
+  border: 2px solid black;
   font-size: 1.5em;
-  margin-bottom: 1.5em;
-  margin-top: .2;
+  z-index: 1;
+  position: ;
+  text-align: center;
+  top: -20px;
+  left: 274px;
+  padding: 5px 354.5px;
+
 }
 
-.sidebar-bottom {
-
+ input[name=newMessageText] {
+  font-family: 'FontAwesome';
+  font-size: 3em;
+  position: fixed;
+  border: 3px;
+  border-color: black;
+  left: 300px;
+  top: 500px;
+  color: black;
 }
 
-.message-component{
-
+ul, menu, dir {
+margin-top: 20px;
+color: black;
+font-size: 15px;
+border-radius: 3px;
+padding: 20px;
+line-height: 25px;
+max-width: 500px;
+word-wrap: break-word;
+position: relative;
+border: black;
+border-style: double;
+background-color: white;
 }
