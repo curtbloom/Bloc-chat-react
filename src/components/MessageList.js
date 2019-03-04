@@ -31,7 +31,7 @@ class Messages extends Component {
   createMessage(newMessageText) {
   this.messagesRef.push({
       content: newMessageText,
-      username: this.props.user ? this.props.user.displayName : 'Curtbloom',
+      username: this.props.user ? this.props.user.displayName : 'Guest',
       roomId: this.props.activeRoom.key,
     });
   this.setState({ newMessageText: '' });
@@ -47,7 +47,7 @@ class Messages extends Component {
 
   render() {
    return (
-     <div className="messages-component">
+     <div className="messages-componentContainer">
        <h2 className="room-name">{ this.props.activeRoom ? this.props.activeRoom.name : '' }</h2>
        <ul id="message-list">
          {this.state.currentMessages.map( message =>
@@ -61,11 +61,11 @@ class Messages extends Component {
            </li>
          )}
        </ul>
-          <form id="create-message" onSubmit={ (e) => { e.preventDefault(); this.createMessage(this.state.newMessageText) } }>
+          <form id="create-message" onSubmit={ (e) => { e.preventDefault(); this.createMessage(this.state.newMessageText)} }>
             <input type="text"
             value={ this.state.newMessageText }
             onChange={ this.handleChange.bind(this) }
-            name="newMessageText" placeholder="Write and press enter" />
+            name="newMessageText" placeholder="Write and press enter"/>
           </form>
      </div>
    );

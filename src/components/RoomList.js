@@ -41,8 +41,8 @@ class RoomList extends Component {
 
    render() {
      return (
-       <div className="sidebar">
-        <section className="room-list">
+       <div className="sidebarContainer">
+        <section className="room-listContainer">
 	          <h3>Rooms</h3>
             {this.state.rooms.map( room =>
                 <li key={room.key} onClick={() => this.props.setActiveRoom(room)} >
