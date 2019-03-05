@@ -28,8 +28,9 @@ top: 74px;
 #sidebar-bottom{
   float: left;
   position: relative;
-  right: 260px;
-  top: 280px;
+  right: 0px;
+  top: 250px;
+  z-index: 1;
 
 }
 

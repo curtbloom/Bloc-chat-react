@@ -48,7 +48,7 @@ class Messages extends Component {
   render() {
    return (
      <div className="messages-componentContainer">
-       <h2 className="room-name">{ this.props.activeRoom ? this.props.activeRoom.name : '' }</h2>
+       <h2 className="room-name">{ this.props.activeRoom ? this.props.activeRoom.name : 'Click room to view messages' }</h2>
        <ul id="message-list">
          {this.state.currentMessages.map( message =>
            <li key={message.key}>
