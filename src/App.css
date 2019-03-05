@@ -5,13 +5,12 @@ body{
 }
 
 .sidebarContainer {
-width: 25%;
+width: 75%;
 float: left;
-top: 0px;
 height: 1018px;
 background-color: orange;
-position: relative;
-top: 0px;
+position: fixed;
+top: 74px;
 }
 
 .messages-componentContainer{
